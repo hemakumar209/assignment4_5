@@ -1,0 +1,80 @@
+library(RcmdrPlugin.IPSUR)
+data(RcmdrTestDrive)
+Perform the below operations:
+1. Compute the measures of central tendency for salary and reduction which variable has highest center?
+   Ans:
+      central tendency is the measure of 
+      1. Arithmetic mean
+      2. Geometric mean   
+      3. Harmonic mean
+      4. Median
+      5. Mode
+
+   central tendency for salary
+
+    >library(psych)
+
+    > mean(data1$salary)
+     [1] 724.5164
+    > median(data1$salary)
+     [1] 710.15
+     #mode
+    > y=table(data1$salary)
+    > names(y)[which(y==max(y))]
+     output shows all values because there are no repeated salaries
+    > geometric.mean(data1$salary)
+     [1] 709.5975
+    > harmonic.mean(data1$salary)
+     [1] 694.7747
+
+   central tendency for reduction
+
+    > geometric.mean(data1$salary)
+     [1] 709.5975
+ 
+    > harmonic.mean(data1$salary)
+     [1] 694.7747
+    > mean(data1$reduction)
+     [1] 223.631
+    > median(data1$reduction)
+    [1] 139.5
+    > geometric.mean(data1$reduction)
+    [1] 141.0917
+    > harmonic.mean(data1$reduction)
+    [1] 68.25501
+    #mode
+    > x=table(data1$reduction)
+    > names(x)[which(x==max(x))]
+     [1] "116"
+
+    >densityPlot(data1$reduction)
+    >densityPlot(data1$salary)
+
+    >hist(data1$reduction)
+    >hist(data1$salary)
+
+  by seeing te histogram or densityplot of salary and reduction we can find that there 
+  is no skewness in salary so we can take center as mean
+  and right skewness in reduction  so median as center
+
+    > median(data1$reduction)
+    [1] 139.5
+    > mean(data1$salary)
+    [1] 724.5164
+hence salary has highest center
+
+2. Which measure of center is more appropriate for before and after?
+
+
+>library(RcmdrPlugin.IPSUR)
+    >View(RcmdrTestDrive)
+    >data(RcmdrTestDrive)
+    >names(RcmdrTestDrive)
+    >data1<-RcmdrTestDrive
+
+    >hist(data1$before)
+    >hist(data1$after)
+
+  by seeing histogram we can see skewness for after and normal distribution for before
+
+   so mesure of center is more appropriate for before.
